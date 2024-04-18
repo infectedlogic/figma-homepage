@@ -1,0 +1,598 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./output.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+        // When the submit button is clicked
+        $('#submitBtn').click(function(e){
+            e.preventDefault(); // Prevent default form submission
+            
+            // Get form data
+            var name = $('#name').val();
+            var email = $('#email').val();
+            
+            // Check if any field is empty
+            if(name === '' || email === '') {
+                alert('Error: Please fill in all fields');
+                return; // Exit the function
+            }
+            
+            // Send AJAX request
+            $.ajax({
+                url: 'submit.php', // PHP file that handles the form submission
+                type: 'POST',
+                data: {
+                    name: name,
+                    email: email
+                },
+                success: function(response){
+                    // Show success message in alert
+                    alert('Hello ' + name + ', we received your message!');
+                },
+                error: function(xhr, status, error){
+                    // Show error message in alert
+                    alert('Error: ' + error);
+                }
+            });
+        });
+    });
+  </script>
+
+</head>
+<body>
+  <div class="flex-col justify-center h-full">
+    <div class="relative flex min-h-[917px] w-full flex-col self-stretch overflow-hidden px-5 pb-20 max-md:max-w-full">
+  
+      <!-- Background image -->
+      <img loading="lazy" srcset="https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F758f841d28f2404f89823c71d57513bb?width=100 100w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F758f841d28f2404f89823c71d57513bb?width=200 200w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F758f841d28f2404f89823c71d57513bb?width=400 400w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F758f841d28f2404f89823c71d57513bb?width=800 800w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F758f841d28f2404f89823c71d57513bb?width=1200 1200w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F758f841d28f2404f89823c71d57513bb?width=1600 1600w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F758f841d28f2404f89823c71d57513bb?width=2000 2000w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F758f841d28f2404f89823c71d57513bb" class="absolute inset-0 size-full object-cover" />
+  
+      <!-- Image that shouldn't be covered -->
+      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/bebd69297564ca57d628a8ca89018e35a5cd6b09bde14883c6b0023a4515f8bd?apiKey=746844029ef740bdb5e29624912c6658&" class="z-10 mx-auto aspect-[4.76] w-full max-w-[422px] object-cover" />
+      
+      <!-- Text content -->
+      <div class="relative mx-auto mt-96 w-[1141px] text-center text-8xl font-bold leading-[96px] tracking-tighter text-white max-md:mt-10 max-md:max-w-full max-md:text-4xl max-md:leading-10">
+        We provide
+        <br />
+        the best talent solutions for your organization
+      </div>
+    </div>
+  </div>
+  
+    
+    
+    <div class="mt-36 max-w-full  max-md:mt-10">
+      <div class="flex gap-5 max-md:flex-col max-md:gap-0">
+        <div class="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
+          <img
+            loading="lazy"
+            srcset="https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F758f841d28f2404f89823c71d57513bb?width=100 100w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F758f841d28f2404f89823c71d57513bb?width=200 200w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F758f841d28f2404f89823c71d57513bb?width=400 400w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F758f841d28f2404f89823c71d57513bb?width=800 800w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F758f841d28f2404f89823c71d57513bb?width=1200 1200w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F758f841d28f2404f89823c71d57513bb?width=1600 1600w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F758f841d28f2404f89823c71d57513bb?width=2000 2000w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F758f841d28f2404f89823c71d57513bb"
+            class="grow w-full aspect-[1.94] max-md:mt-10 max-md:max-w-full"
+          />
+        </div>
+        <div class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
+          <div
+            class="self-stretch my-auto text-4xl italic font-bold text-red-500 leading-[69px] max-md:mt-10 max-md:max-w-full"
+          >
+            Our expert guidance
+            <br />
+            and innovative workforce solutions enable faster and
+            <span class="text-5xl italic font-medium text-red-500">
+              smarter decisions for your talent
+            </span>
+            optimization.
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    <div
+      class="mt-36 text-6xl font-bold text-center leading-[61px] text-zinc-800  max-md:mt-10 max-md:max-w-full max-md:text-4xl max-md:leading-[50px]"
+    >
+      Discover
+      <br />
+      The Workplace
+    </div>
+    
+    
+    <div class="px-5 mt-20 w-full max-md:mt-10 max-md:max-w-full ">
+      <div class="flex gap-5 max-md:flex-col max-md:gap-0 ">
+        <div class="flex flex-col w-[33%] max-md:ml-0 max-md:w-full hover:text-green-500">
+          <div
+            class="flex flex-col grow text-center whitespace-nowrap max-md:mt-10 hover:text-green-500"
+          >
+            <div
+              class="flex flex-col self-center px-12 py-20 border-solid border-[6px] border-gray-200 border-opacity-50 rounded-[128px] max-md:px-5 hover:text-green-500"
+            >
+              <div class="text-2xl font-semibold text-red-500 hover:text-green-500">Revenues</div>
+              <div class="mt-6 text-4xl font-bold text-zinc-800 hover:text-green-500">€94M</div>
+            </div>
+            <div
+              class="mt-11 text-8xl font-bold text-red-500 max-md:mt-10 max-md:text-4xl hover:text-green-500"
+            >
+              300+
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full hover:text-green-500">
+          <div
+            class="flex flex-col grow text-center whitespace-nowrap max-md:mt-10 hover:text-green-500"
+          >
+            <div
+              class="flex flex-col self-center px-12 py-20 border-solid border-[6px] border-gray-200 border-opacity-50 rounded-[128px] max-md:px-5 hover:text-green-500"
+            >
+              <div class="self-center text-2xl font-semibold text-red-500 hover:text-green-500 ">
+                Clients
+              </div>
+              <div class="mt-6 text-4xl font-bold text-zinc-800 hover:text-green-500">1,000+</div>
+            </div>
+            <div class="mt-11 text-8xl font-bold text-red-500 max-md:mt-10 max-md:text-4xl hover:text-green-500">
+              3,000+
+            </div>
+            
+            
+          </div>
+        </div>
+        <div class="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full hover:text-green-500">
+          <div
+            class="flex flex-col grow text-center whitespace-nowrap max-md:mt-10 hover:text-green-500"
+          >
+            <div
+              class="flex flex-col self-center px-10 py-20 border-solid border-[6px] border-gray-200 border-opacity-50 rounded-[128px] max-md:px-5 hover:text-green-500"
+            >
+              <div class="text-2xl font-semibold text-red-500 hover:text-green-500">Companies</div>
+              <div class="self-center mt-6 text-4xl font-bold text-zinc-800 hover:text-green-500">
+                16
+              </div>
+            </div>
+            <div
+              class="mt-11 text-8xl font-bold text-red-500 max-md:mt-10 max-md:text-4xl hover:text-green-500"
+            >
+              4,500+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    <div class="mt-36 w-full  max-md:mt-10 max-md:max-w-full">
+      <div class="flex gap-5 max-md:flex-col max-md:gap-0">
+        <div class="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
+          <div
+            class="flex flex-col grow px-5 font-bold text-zinc-800 max-md:mt-10 max-md:max-w-full"
+          >
+            <div
+              class="text-6xl leading-[61px] max-md:max-w-full max-md:text-4xl max-md:leading-[50px]"
+            >
+              Workplace is a collaboration between Mplus and Noordenster
+            </div>
+            <div class="mt-8 text-3xl leading-10 max-md:max-w-full">
+              It's the exclusive ManpowerGroup partner and license holder for the
+              Manpower brand in multiple CEE countries
+            </div>
+            <div class="mt-8 text-lg font-light leading-9 max-md:max-w-full">
+              Workplace owns companies under the Manpower Brand in 6 countries in
+              the region including Bosnia and Herzegovina, Bulgaria, Croatia,
+              Hungary, Serbia and Slovenia.
+              <br />
+              <br />
+              Alongside Manpower branded companies, Workplace also encompasses MPS
+              Integration, offering advanced outsourcing solutions, as well as Smart
+              Flex, a Croatian based HR services provider.
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
+          <img
+            loading="lazy"
+            srcset="https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2Fc2701e0265f2425093ae82f1044051d5?width=100 100w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2Fc2701e0265f2425093ae82f1044051d5?width=200 200w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2Fc2701e0265f2425093ae82f1044051d5?width=400 400w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2Fc2701e0265f2425093ae82f1044051d5?width=800 800w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2Fc2701e0265f2425093ae82f1044051d5?width=1200 1200w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2Fc2701e0265f2425093ae82f1044051d5?width=1600 1600w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2Fc2701e0265f2425093ae82f1044051d5?width=2000 2000w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2Fc2701e0265f2425093ae82f1044051d5"
+            class="mt-1.5 w-full aspect-[1.02] max-md:mt-10 max-md:max-w-full"
+          />
+        </div>
+      </div>
+    </div>
+    
+    <div class="relative mt-36 flex min-h-[853px] w-full  flex-col items-center justify-center overflow-hidden px-16 py-20 max-md:mt-10 max-md:max-w-full max-md:px-5 bg-gray-500">
+      <img loading="lazy" srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/168c942edb10bc734cca812106c343f2478bbc7487932f2cee9e3f0464e95740?apiKey=746844029ef740bdb5e29624912c6658&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/168c942edb10bc734cca812106c343f2478bbc7487932f2cee9e3f0464e95740?apiKey=746844029ef740bdb5e29624912c6658&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/168c942edb10bc734cca812106c343f2478bbc7487932f2cee9e3f0464e95740?apiKey=746844029ef740bdb5e29624912c6658&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/168c942edb10bc734cca812106c343f2478bbc7487932f2cee9e3f0464e95740?apiKey=746844029ef740bdb5e29624912c6658&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/168c942edb10bc734cca812106c343f2478bbc7487932f2cee9e3f0464e95740?apiKey=746844029ef740bdb5e29624912c6658&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/168c942edb10bc734cca812106c343f2478bbc7487932f2cee9e3f0464e95740?apiKey=746844029ef740bdb5e29624912c6658&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/168c942edb10bc734cca812106c343f2478bbc7487932f2cee9e3f0464e95740?apiKey=746844029ef740bdb5e29624912c6658&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/168c942edb10bc734cca812106c343f2478bbc7487932f2cee9e3f0464e95740?apiKey=746844029ef740bdb5e29624912c6658&" class="absolute inset-0 size-full object-cover" />
+      <div class="relative mb-7 mt-10 flex w-full max-w-[1421px] flex-col max-md:mt-10 max-md:max-w-full">
+        <div class="flex gap-5 text-white max-md:max-w-full max-md:flex-wrap">
+          <div class="flex-auto text-6xl font-bold leading-[58px] max-md:text-4xl max-md:leading-10">
+            Workplace
+            <br />
+            Footprint
+          </div>
+          <div class="my-auto flex-auto text-2xl leading-10 max-md:max-w-full">Workplace Serves Over 1.000 clients spread across its member companies and regions, making the Workplace a leader in HR Services.</div>
+        </div>
+        <div class="mt-32 max-md:mt-10 max-md:max-w-full">
+          <div class="flex gap-5 max-md:flex-col max-md:gap-0">
+            <div class="flex w-6/12 flex-col max-md:ml-0 max-md:w-full">
+              <div class="group">
+                <div class="flex w-full grow justify-between gap-5 whitespace-nowrap bg-zinc-800 group-hover:bg-white bg-opacity-70 px-10 py-7 max-md:mt-4 max-md:max-w-full max-md:flex-wrap max-md:px-5">
+                  <div class="my-auto text-3xl font-bold leading-[50.4px] text-white group-hover:text-pink-700">b&H</div>
+                  <div class="flex flex-col">
+                    <div class="text-lg font-light leading-9 text-white text-opacity-30 group-hover:text-black">TotalbClients</div>
+                    <div class="mt-5 text-2xl font-bold leading-[50.4px] text-white group-hover:text-black">+50</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ml-5 flex w-6/12 flex-col max-md:ml-0 max-md:w-full">
+              <div class="group">
+                <div class="flex w-full grow justify-between gap-5 whitespace-nowrap bg-zinc-800 group-hover:bg-white bg-opacity-70 px-10 py-7 max-md:mt-4 max-md:max-w-full max-md:flex-wrap max-md:px-5">
+                  <div class="my-auto text-3xl font-bold leading-[50.4px] text-white group-hover:text-pink-700">Bulgaria</div>
+                  <div class="flex flex-col">
+                    <div class="text-lg font-light leading-9 text-white text-opacity-30 group-hover:text-black">TotalbClients</div>
+                    <div class="mt-5 text-2xl font-bold leading-[50.4px] text-white group-hover:text-black">419</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4 max-md:max-w-full">
+          <div class="flex gap-5 max-md:flex-col max-md:gap-0">
+            <div class="flex w-6/12 flex-col max-md:ml-0 max-md:w-full">
+              <div class="group">
+                <div class="flex w-full grow justify-between gap-5 whitespace-nowrap bg-zinc-800 group-hover:bg-white bg-opacity-70 px-10 py-7 max-md:mt-4 max-md:max-w-full max-md:flex-wrap max-md:px-5">
+                  <div class="my-auto text-3xl font-bold leading-[50.4px] text-white group-hover:text-pink-700">Croatia</div>
+                  <div class="flex flex-col">
+                    <div class="text-lg font-light leading-9 text-white text-opacity-30 group-hover:text-black">TotalbClients</div>
+                    <div class="mt-5 text-2xl font-bold leading-[50.4px] text-white group-hover:text-black">163</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ml-5 flex w-6/12 flex-col max-md:ml-0 max-md:w-full">
+              <div class="group">
+                <div class="flex w-full grow justify-between gap-5 whitespace-nowrap bg-zinc-800 group-hover:bg-white bg-opacity-70 px-10 py-7 max-md:mt-4 max-md:max-w-full max-md:flex-wrap max-md:px-5">
+                  <div class="my-auto text-3xl font-bold leading-[50.4px] text-white group-hover:text-pink-700">Hungary</div>
+                  <div class="flex flex-col">
+                    <div class="text-lg font-light leading-9 text-white text-opacity-30 group-hover:text-black">TotalbClients</div>
+                    <div class="mt-5 text-2xl font-bold leading-[50.4px] text-white group-hover:text-black">139</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4 max-md:max-w-full">
+          <div class="flex gap-5 max-md:flex-col max-md:gap-0">
+            <div class="flex w-6/12 flex-col max-md:ml-0 max-md:w-full">
+              <div class="group">
+                <div class="flex w-full grow justify-between gap-5 whitespace-nowrap bg-zinc-800 group-hover:bg-white bg-opacity-70 px-10 py-7 max-md:mt-4 max-md:max-w-full max-md:flex-wrap max-md:px-5">
+                  <div class="my-auto text-3xl font-bold leading-[50.4px] text-white group-hover:text-pink-700">Serbia</div>
+                  <div class="flex flex-col">
+                    <div class="text-lg font-light leading-9 text-white text-opacity-30 group-hover:text-black">TotalbClients</div>
+                    <div class="mt-5 text-2xl font-bold leading-[50.4px] text-white group-hover:text-black">362</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ml-5 flex w-6/12 flex-col max-md:ml-0 max-md:w-full">
+              <div class="group">
+                <div class="flex w-full grow justify-between gap-5 whitespace-nowrap bg-zinc-800 group-hover:bg-white bg-opacity-70 px-10 py-7 max-md:mt-4 max-md:max-w-full max-md:flex-wrap max-md:px-5">
+                  <div class="my-auto text-3xl font-bold leading-[50.4px] text-white group-hover:text-pink-700">Slovania</div>
+                  <div class="flex flex-col">
+                    <div class="text-lg font-light leading-9 text-white text-opacity-30 group-hover:text-black">TotalbClients</div>
+                    <div class="mt-5 text-2xl font-bold leading-[50.4px] text-white group-hover:text-black">150</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div
+      class="mt-24 text-6xl font-bold text-center leading-[61px] text-zinc-800 w-[732px] max-md:mt-10 max-md:text-4xl max-md:leading-[50px]"
+    >
+      Products &
+      <br />
+      Services
+    </div>
+    
+    
+    <div class="mt-16 w-full  max-md:mt-10 max-md:max-w-full">
+      <div class="flex gap-5 max-md:flex-col max-md:gap-0">
+        <div class="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
+          <div
+            class="flex overflow-hidden relative flex-col grow px-6 pt-6  min-h-[442px] max-md:mt-10 max-md:max-w-full"
+          >
+            <img
+              loading="lazy"
+              srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/514cef6b3f71379abdb50bfaddc6a71ba1920f2972d862322ca51a7fb8e02375?apiKey=746844029ef740bdb5e29624912c6658&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/514cef6b3f71379abdb50bfaddc6a71ba1920f2972d862322ca51a7fb8e02375?apiKey=746844029ef740bdb5e29624912c6658&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/514cef6b3f71379abdb50bfaddc6a71ba1920f2972d862322ca51a7fb8e02375?apiKey=746844029ef740bdb5e29624912c6658&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/514cef6b3f71379abdb50bfaddc6a71ba1920f2972d862322ca51a7fb8e02375?apiKey=746844029ef740bdb5e29624912c6658&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/514cef6b3f71379abdb50bfaddc6a71ba1920f2972d862322ca51a7fb8e02375?apiKey=746844029ef740bdb5e29624912c6658&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/514cef6b3f71379abdb50bfaddc6a71ba1920f2972d862322ca51a7fb8e02375?apiKey=746844029ef740bdb5e29624912c6658&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/514cef6b3f71379abdb50bfaddc6a71ba1920f2972d862322ca51a7fb8e02375?apiKey=746844029ef740bdb5e29624912c6658&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/514cef6b3f71379abdb50bfaddc6a71ba1920f2972d862322ca51a7fb8e02375?apiKey=746844029ef740bdb5e29624912c6658&"
+              class="object-cover absolute inset-0 size-full"
+            />
+            <img
+              loading="lazy"
+              srcset="https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F485bb26e06174d27abcbc5d055d53a9e?width=100 100w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F485bb26e06174d27abcbc5d055d53a9e?width=200 200w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F485bb26e06174d27abcbc5d055d53a9e?width=400 400w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F485bb26e06174d27abcbc5d055d53a9e?width=800 800w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F485bb26e06174d27abcbc5d055d53a9e?width=1200 1200w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F485bb26e06174d27abcbc5d055d53a9e?width=1600 1600w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F485bb26e06174d27abcbc5d055d53a9e?width=2000 2000w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F485bb26e06174d27abcbc5d055d53a9e"
+              class="-mr-px w-full aspect-[1.38] max-w-[652px] max-md:max-w-full"
+            />
+          </div>
+        </div>
+        <div class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
+          <div
+            class="self-stretch my-auto text-3xl font-bold leading-[51px] text-zinc-800 max-md:mt-10 max-md:max-w-full"
+          >
+            Workplace Offers a tailor-made Comprehensive HR Services Package With
+            Industry Expertise and a strong Client Base
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+  </div>
+  
+  
+  
+  
+  
+  
+  <div class="px-5 mt-20 w-full  max-md:mt-10 max-md:max-w-full">
+    <div class="flex gap-5 max-md:flex-col max-md:gap-0">
+      <div class="flex flex-col w-3/12 max-md:ml-0 max-md:w-full">
+        <div
+          class="flex flex-col grow pb-20 text-xl leading-9 border-solid border-[6px] border-gray-200 hover:border-green border-opacity-50 text-zinc-800 max-md:mt-8"
+        >
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/0916f87ccff36fd378745e4229e0e6d1866068b83ec883aea2a0c11a019419bc?apiKey=746844029ef740bdb5e29624912c6658&"
+            class="aspect-[1.33] fill-red-500 w-[72px]"
+          />
+          <div class="self-center mt-2 w-[244px]">
+            As a group, Workplace expands upon the individual offerings of all
+            member companies to create a one-stop-shop for HR Services
+            <br />
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col ml-5 w-3/12 max-md:ml-0 max-md:w-full">
+        <div
+          class="flex flex-col grow pt-16 pl-11 text-xl leading-9 border-solid border-[6px] border-gray-200 hover:border-green border-opacity-50 text-zinc-800 max-md:mt-8"
+        >
+          <div class="self-center">
+            Through state-of-the-art technical solutions and specialized teams
+            with proven HR experience Workplace pairs clients with the best talent
+            to suit their unique needs
+          </div>
+
+        </div>
+      </div>
+      <div class="flex flex-col ml-5 w-3/12 max-md:ml-0 max-md:w-full">
+        <div
+          class="flex flex-col grow pb-20 text-xl leading-9 border-solid border-[6px] border-gray-200 hover:border-green border-opacity-50 text-zinc-800 max-md:mt-8"
+        >
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/0916f87ccff36fd378745e4229e0e6d1866068b83ec883aea2a0c11a019419bc?apiKey=746844029ef740bdb5e29624912c6658&"
+            class="aspect-[1.33] fill-red-500 w-[72px]"
+          />
+          <div class="self-center mt-2 w-[244px]">
+            Workplace services offer clients workforce management from start to
+            finish, allowing the client to focus on their core busines
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col ml-5 w-3/12 max-md:ml-0 max-md:w-full">
+        <div class="flex flex-col grow pt-16 pl-11 text-xl leading-9 border-solid border-[6px] border-gray-200 hover:border-green border-opacity-50 text-zinc-800 max-md:mt-8 relative">
+          <div class="self-center">
+            Workplace also offers clients research solutions in order to provide a
+            detailed and realistic representation of working conditions on the
+            market even before recruiting begins
+          </div>
+
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <div
+    class="flex overflow-hidden relative flex-col justify-center items-center px-16 py-20 mt-28 max-w-full text-white mix-blend-luminosity min-h-[949px]  max-md:px-5 max-md:mt-10 bg-gray-500"
+  >
+    <img
+      loading="lazy"
+      srcset="https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F3e26df1dd5d841e685620dddccf81426?width=100 100w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F3e26df1dd5d841e685620dddccf81426?width=200 200w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F3e26df1dd5d841e685620dddccf81426?width=400 400w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F3e26df1dd5d841e685620dddccf81426?width=800 800w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F3e26df1dd5d841e685620dddccf81426?width=1200 1200w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F3e26df1dd5d841e685620dddccf81426?width=1600 1600w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F3e26df1dd5d841e685620dddccf81426?width=2000 2000w, https://cdn.builder.io/api/v1/image/assets%2F746844029ef740bdb5e29624912c6658%2F3e26df1dd5d841e685620dddccf81426"
+      class="object-cover absolute inset-0 size-full"
+    />
+    <div
+      class="flex relative gap-5 justify-between mt-5 w-full max-w-[1303px] max-md:flex-wrap max-md:max-w-full"
+    >
+      <div class="flex flex-col self-start">
+        <div
+          class="px-8 pt-7 pb-5 text-6xl font-bold whitespace-nowrap leading-[59px] max-md:pl-5 max-md:text-4xl max-md:leading-10"
+        >
+          Workplace
+          <br />
+          Solutions
+        </div>
+        <div class="mt-9 text-2xl leading-10">
+          Our expert guidance and innovative workforce solutions enable faster and
+          smarter decisions for your talent optimization.
+        </div>
+      </div>
+      <div class="flex flex-col font-bold max-md:max-w-full">
+        <div class="flex gap-3.5 justify-between max-md:flex-wrap">
+          <div
+            class="justify-center  min-w-[88px] items-center p-2 text-4xl whitespace-nowrap bg-red-500 h-[88px] leading-[50.4px] rounded-[48px] w-[88px] max-md:px-5 hover:bg-black "
+          >
+            1
+          </div>
+    
+          <div class="my-auto text-2xl leading-[51px] max-md:max-w-full">
+            Tailor made solutions for each Client
+          </div>
+        </div>
+        <div
+          class="flex gap-3.5 justify-between mt-7 max-md:flex-wrap max-md:mr-2.5"
+        >
+          <div
+            class="justify-center min-w-[88px] items-center p-2 text-4xl whitespace-nowrap bg-red-500 h-[88px] leading-[50.4px] rounded-[48px] w-[88px] max-md:px-5 hover:bg-black"
+          >
+            2
+          </div>
+          <div class="my-auto text-2xl leading-[51px] max-md:max-w-full">
+            Permanent Recruitment & Selection
+          </div>
+        </div>
+        <div class="flex gap-3.5 justify-between self-start mt-7">
+          <div
+            class="justify-center items-center p-2 text-4xl whitespace-nowrap bg-red-500 h-[88px] leading-[50.4px] rounded-[48px] w-[88px] max-md:px-5 hover:bg-black"
+          >
+            3
+          </div>
+          <div class="my-auto text-2xl leading-[51px]">Temporary Staffing</div>
+        </div>
+        <div class="flex gap-3.5 justify-between mt-7 max-md:flex-wrap">
+          <div
+            class="justify-center  min-w-[88px] items-center p-2 text-4xl whitespace-nowrap bg-red-500 h-[88px] leading-[50.4px] rounded-[48px] w-[88px] max-md:px-5 hover:bg-black"
+          >
+            4
+          </div>
+          <div class="my-auto text-2xl leading-[51px] max-md:max-w-full">
+            Payroll, Finance & HR Administration
+          </div>
+        </div>
+        <div class="flex gap-3.5 justify-between mt-7 max-md:flex-wrap">
+          <div
+            class="justify-center items-center p-2 text-4xl whitespace-nowrap bg-red-500 h-[88px] leading-[50.4px] rounded-[48px] w-[88px] max-md:px-5 hover:bg-black"
+          >
+            5
+          </div>
+          <div class="my-auto text-2xl leading-[51px] max-md:max-w-full">
+            Advanced Outsourcing
+          </div>
+        </div>
+        <div class="flex gap-3.5 justify-between mt-7 max-md:flex-wrap">
+          <div
+            class="justify-center items-center p-2 text-4xl whitespace-nowrap bg-red-500 h-[88px] leading-[50.4px] rounded-[48px] w-[88px] max-md:px-5 hover:bg-black"
+          >
+            6
+          </div>
+          <div class="my-auto text-2xl leading-[51px] max-md:max-w-full">
+            Education & HR Strategy
+          </div>
+        </div>
+        <div
+          class="flex gap-3.5 justify-between self-start mt-7 whitespace-nowrap"
+        >
+          <div
+            class="justify-center items-center p-2 text-4xl bg-red-500 h-[88px] leading-[50.4px] rounded-[48px] w-[88px] max-md:px-5 hover:bg-black"
+          >
+            7
+          </div>
+          <div class="my-auto text-2xl leading-[51px]">Research</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  <div
+    class=" flex justify-center items-center h-screen flex justify-center items-center px-16 py-20 mt-16 w-full bg-red-500 max-md:px-5 max-md:mt-10 max-md:max-w-full"
+  >
+    <div class="mt-7 mb-2 w-full max-w-[1346px] max-md:max-w-full">
+      <div class="flex gap-5 max-md:flex-col max-md:gap-0">
+        <div class="flex flex-col w-[54%] max-md:ml-0 max-md:w-full">
+          <div
+            class="flex flex-col grow justify-center text-base leading-[50.56px] text-zinc-800 max-md:mt-10 max-md:max-w-full"
+          >
+            <div
+              class="flex flex-col items-center p-20 bg-white max-md:px-5 max-md:max-w-full"
+            >
+            <input type="text" id="name" class="justify-center px-4 py-3.5 mt-4 max-w-full bg-white border-2 border-gray-200 border-solid w-[346px]" placeholder="Name Surname">
+
+            <input type="email" id="email" class="justify-center px-4 py-3.5 mt-6 max-w-full bg-white border-2 border-gray-200 border-solid w-[346px]" placeholder="E-Mail Address">
+
+            <input type="text" id="detail" class="justify-center px-4 pt-3.5 pb-7 mt-6 max-w-full whitespace-nowrap bg-white border-2 border-gray-200 border-solid w-[346px]" placeholder="Detail">
+
+
+              <button id="submitBtn" class="justify-center items-center px-8 py-6 mt-6 mb-4 max-w-full font-bold text-white whitespace-nowrap bg-zinc-800 w-[346px] max-md:px-5">
+                Send
+              </button>
+              
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col ml-5 w-[46%] max-md:ml-0 max-md:w-full">
+          <div
+            class="flex flex-col self-stretch my-auto max-md:mt-10 max-md:max-w-full"
+          >
+            <div
+              class="text-6xl font-bold text-white leading-[61.02px] max-md:max-w-full max-md:text-4xl"
+            >
+              Contact Us
+            </div>
+            <div
+              class="mt-16 text-2xl font-semibold leading-10 text-white max-md:mt-10 max-md:max-w-full"
+            >
+              Lorem ipsum dolor sit amet,
+              <br />
+              consectetur adipiscing elit,
+              <br />
+              sed do eiusmod tempor incididunt
+              <br />
+              ut labore et dolore magna
+              <br />
+              aliqua.
+            </div>
+            <div class="flex gap-4 self-start mt-16 max-md:mt-10">
+              <img
+                loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/0cea264fe89246628e34fcf9f5e9822a8400751b083d0acdd5fa9fb817da35db?apiKey=746844029ef740bdb5e29624912c6658&"
+                class="shrink-0 w-12 aspect-square"
+              />
+              <img
+                loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/bfa8f9141a4e60ea6d3cb94426b367fd1edeac00fc117af42ee80dccb82651d4?apiKey=746844029ef740bdb5e29624912c6658&"
+                class="shrink-0 w-12 aspect-square"
+              />
+              <img
+                loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/89be9f460e6a92d4a39a12035784e6af23e5ffa10becbc2ff1ebd6066758e147?apiKey=746844029ef740bdb5e29624912c6658&"
+                class="shrink-0 w-12 aspect-square"
+              />
+              <img
+                loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/d9779b0ef5fd5241f8403a23bb495c7682dbdd6cc508a31b3eaf9589cf5d4531?apiKey=746844029ef740bdb5e29624912c6658&"
+                class="shrink-0 w-12 aspect-square"
+              />
+              <img
+                loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/ffed2b6a8f16b56f9a725572b735d4db7150f6aefd46688484131816a0867e45?apiKey=746844029ef740bdb5e29624912c6658&"
+                class="shrink-0 w-12 aspect-square"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <div class="mt-20 text-base leading-[50.56px] text-zinc-800 max-md:mt-10 text-center">
+    Work Place Copyright © 2023
+  </div>
+  
+  
+</body>
+</html>
